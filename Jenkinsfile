@@ -9,9 +9,6 @@ pipeline {
     stages {
         stage('Stubs-Replacement'){
             steps {
-                checkout scm
-
-                docker.withRegistry('https://registry.example.com', 'docker-hub-credentials')
                 // 'STUB_VALUE' Environment Variable declared in Jenkins Configuration 
                 echo "STUB_VALUE = ${STUB_VALUE}"
                 sh "sed -i 's/<STUB_VALUE>/$STUB_VALUE/g' config.py"
