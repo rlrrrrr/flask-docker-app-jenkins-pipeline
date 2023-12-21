@@ -20,7 +20,7 @@ pipeline {
 
                 // login to docker HUB
 
-                docker login -u $USERNAME -p $PASSWORD
+                sh 'docker login -u $USERNAME -p $PASSWORD'
                 //  Building new image
                 sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
