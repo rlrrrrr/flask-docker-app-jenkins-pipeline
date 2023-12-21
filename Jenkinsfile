@@ -18,16 +18,14 @@ pipeline {
         stage('Build') {
             steps {
 
-                // login to docker HUB
 
-                sh 'docker login -u $USERNAME -p $PASSWORD'
                 //  Building new image
                 sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                sh 'docker push $CONTAINER_NAME:$BUILD_NUMBER'
-                sh 'docker push $CONTAINER_NAME:latest'
+                //sh 'docker push $CONTAINER_NAME:$BUILD_NUMBER'
+                //sh 'docker push $CONTAINER_NAME:latest'
                 
                 echo "Image built and pushed to repository"
             }
