@@ -1,6 +1,8 @@
 pipeline {
     agent any
     environment {
+        USERNAME = credentials('USERNAME')
+        PASSWORD = credentials('PASSWORD')
         DOCKER_HUB_REPO = "rlrrr/jenkins"
         CONTAINER_NAME = "flask-container"
         STUB_VALUE = "200"
@@ -17,6 +19,10 @@ pipeline {
         }
         stage('Build') {
             steps {
+
+                // login to docker hub
+
+                sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
 
 
                 //  Building new image
