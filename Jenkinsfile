@@ -4,7 +4,7 @@ pipeline {
         USERNAME = "rlrrr"
         PASSWORD = credentials('PASSWORD')
         DOCKER_HUB_REPO = "rlrrr/flask-container"
-        CONTAINER_NAME = "rlrrr/flask-container"
+        CONTAINER_NAME = "flask-container"
         STUB_VALUE = "200"
 
     }
