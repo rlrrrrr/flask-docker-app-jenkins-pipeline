@@ -3,8 +3,8 @@ pipeline {
     environment {
         USERNAME = credentials('USERNAME')
         PASSWORD = credentials('PASSWORD')
-        DOCKER_HUB_REPO = "rlrrr/jenkins"
-        CONTAINER_NAME = "flask-container"
+        DOCKER_HUB_REPO = "rlrrr/flask-container"
+        CONTAINER_NAME = "rlrrr/flask-container"
         STUB_VALUE = "200"
 
     }
@@ -30,8 +30,8 @@ pipeline {
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                sh 'docker push $CONTAINER_NAME:$BUILD_NUMBER'
-                sh 'docker push $CONTAINER_NAME:latest'
+                sh 'docker push $DOCKER_HUB_REPO:$BUILD_NUMBER'
+                sh 'docker push $DOCKER_HUB_REPO:latest'
                 
                 echo "Image built and pushed to repository"
             }
