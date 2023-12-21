@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        USERNAME = rlrrr
+        USERNAME = "rlrrr"
         PASSWORD = credentials('PASSWORD')
         DOCKER_HUB_REPO = "rlrrr/flask-container"
         CONTAINER_NAME = "rlrrr/flask-container"
